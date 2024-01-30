@@ -14,20 +14,13 @@ print(df_SSL[['체중', '신장', 'bmi(%)']])
 
 def surgery_hours(params):
     try : 
-        result =int(params//60)
+        hour =int(params//60)
+        minute =int(params%60)
+        result = pd.to_datetime(f"{hour},{minute}", format="%H,%M")
+        return result
     except :
-        result = 'nan'
-    return result
+        pass
+
 df_SSL['수술시간_datetime_hours']=df_SSL['수술시간'].apply(surgery_hours)
-pass
-
-def surgery_minutes(params):
-    try : 
-        result =int(params%60)
-    except :
-        result = 'nan'
-    return result
-df_SSL['수술시간_datetime_minutes']=df_SSL['수술시간'].apply(surgery_minutes)
-
-df_SSL[['수술시간', '수술시간_datetime_hours', '수술시간_datetime_minutes']]
+df_SSL['수술시간_datetime_hours']=df_SSL['수술시간_datetime_hours'].dt.time
 pass
