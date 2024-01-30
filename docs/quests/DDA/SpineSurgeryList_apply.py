@@ -23,4 +23,6 @@ def surgery_hours(params):
 
 df_SSL['수술시간_datetime']=df_SSL['수술시간'].apply(surgery_hours)
 df_SSL['수술시간_datetime']=df_SSL['수술시간_datetime_hours'].dt.time
+
+print(df_SSL[['수술시간', '수술시간_datetime']])
 pass
