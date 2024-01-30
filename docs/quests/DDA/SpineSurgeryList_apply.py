@@ -21,6 +21,6 @@ def surgery_hours(params):
     except :
         pass
 
-df_SSL['수술시간_datetime_hours']=df_SSL['수술시간'].apply(surgery_hours)
-df_SSL['수술시간_datetime_hours']=df_SSL['수술시간_datetime_hours'].dt.time
+df_SSL['수술시간_datetime']=df_SSL['수술시간'].apply(surgery_hours)
+df_SSL['수술시간_datetime']=df_SSL['수술시간_datetime_hours'].dt.time
 pass
